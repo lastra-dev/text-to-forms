@@ -2,6 +2,7 @@ from selenium import webdriver
 import xpath
 import time
 
+
 driver = webdriver.Chrome()
 
 
@@ -19,13 +20,22 @@ def send_info(location, element, info):
 
 
 def main_loop():
-    for i in range(0, len(lines), 5):
-        add_question()
-        send_info(xpath.QUESTION_BOX, -1, lines[i])
-        send_info(xpath.ANSWER_BOX, -2, lines[i+1])
-        send_info(xpath.ANSWER_BOX, -1, lines[i+2])
-        send_info(xpath.ANSWER_BOX, -1, lines[i+3])
-        send_info(xpath.ANSWER_BOX, -1, lines[i+4])
+    new_question = True
+    first_answer = False
+
+    for info in lines:
+        if info == '':
+            add_question()
+            new_question = True
+        elif new_question:
+            send_info(xpath.QUESTION_BOX, -1, info)
+            new_question = False
+            first_answer = True
+        elif first_answer:
+            send_info(xpath.ANSWER_BOX, -2, info)
+            first_answer = False
+        else:
+            send_info(xpath.ANSWER_BOX, -1, info)
 
 
 lines = []
