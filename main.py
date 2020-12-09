@@ -20,6 +20,7 @@ def send_info(location, element, info):
 
 
 def main_loop():
+    add_question()
     new_question = True
     first_answer = False
 
