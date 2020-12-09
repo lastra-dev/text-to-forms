@@ -2,7 +2,6 @@ from selenium import webdriver
 import xpath
 import time
 
-
 driver = webdriver.Chrome()
 
 
@@ -23,11 +22,14 @@ def main_loop():
     add_question()
     new_question = True
     first_answer = False
+    n_questions = 0
 
-    for info in lines:
+    for info in questions:
         if not info:
             add_question()
             new_question = True
+            n_questions += 1
+            print(str(n_questions) + " questions added")
         elif new_question:
             send_info(xpath.QUESTION_BOX, -1, info)
             new_question = False
@@ -38,11 +40,24 @@ def main_loop():
         else:
             send_info(xpath.ANSWER_BOX, -1, info)
 
+    print(str(n_questions + 1) + " questions added\n")
 
-lines = []
+
+print("--------------------------------------------\n"
+      "            SELENIUM EXAM FILLER\n"
+      "--------------------------------------------\n"
+      "More info: https://github.com/oscaragl13/selenium-exam-filler\n")
+
+questions = []
 with open("questions.txt", "r", encoding="utf8") as file:
     for line in file:
         if '\n' in line:
-            lines.append(line[:-1])  # avoids return
+            questions.append(line[:-1])  # avoids return
         else:
-            lines.append(line)
+            questions.append(line)
+
+print(str(questions.count('') + 1) + " questions to add.")
+
+input("Hit Enter when you get to your Google form...\n")
+main_loop()
+input("Process finished, press Enter to exit...")
