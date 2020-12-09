@@ -19,19 +19,45 @@ def send_info(location, element, info):
 
 
 def main_loop():
-    for i in range(0, len(lines), 5):
-        add_question()
-        send_info(xpath.QUESTION_BOX, -1, lines[i])
-        send_info(xpath.ANSWER_BOX, -2, lines[i+1])
-        send_info(xpath.ANSWER_BOX, -1, lines[i+2])
-        send_info(xpath.ANSWER_BOX, -1, lines[i+3])
-        send_info(xpath.ANSWER_BOX, -1, lines[i+4])
+    add_question()
+    new_question = True
+    first_answer = False
+    n_questions = 0
+
+    for info in questions:
+        if not info:
+            add_question()
+            new_question = True
+            n_questions += 1
+            print(str(n_questions) + " questions added")
+        elif new_question:
+            send_info(xpath.QUESTION_BOX, -1, info)
+            new_question = False
+            first_answer = True
+        elif first_answer:
+            send_info(xpath.ANSWER_BOX, -2, info)
+            first_answer = False
+        else:
+            send_info(xpath.ANSWER_BOX, -1, info)
+
+    print(str(n_questions + 1) + " questions added\n")
 
 
-lines = []
+print("--------------------------------------------\n"
+      "            SELENIUM EXAM FILLER\n"
+      "--------------------------------------------\n"
+      "More info: https://github.com/oscaragl13/selenium-exam-filler\n")
+
+questions = []
 with open("questions.txt", "r", encoding="utf8") as file:
     for line in file:
         if '\n' in line:
-            lines.append(line[:-1])  # avoids return
+            questions.append(line[:-1])  # avoids return
         else:
-            lines.append(line)
+            questions.append(line)
+
+print(str(questions.count('') + 1) + " questions to add.")
+
+input("Hit Enter when you get to your Google form...\n")
+main_loop()
+input("Process finished, press Enter to exit...")
