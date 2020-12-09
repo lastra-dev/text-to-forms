@@ -57,32 +57,38 @@ def fill_list() -> list:
     return questions_list
 
 
+########################################################################
+
+
 def main_loop():
     add_question()
+    # necessary booleans to change input location
     new_question = True
     first_answer = False
-    n_questions = 0
+    # questions counter to print while process is running
+    questions_count = 0
 
     for info in questions:
         if not info:
+            # adds a new question when blank line found
             add_question()
             new_question = True
-            n_questions += 1
-            print(str(n_questions) + " questions added")
+            questions_count += 1
+            print(str(questions_count) + " questions added")
         elif new_question:
+            # adds info in question box
             send_info(xpath.QUESTION_BOX, -1, info)
             new_question = False
             first_answer = True
         elif first_answer:
+            # adds info in first answer box
             send_info(xpath.ANSWER_BOX, -2, info)
             first_answer = False
         else:
+            # adds info in the rest of the answer boxes
             send_info(xpath.ANSWER_BOX, -1, info)
 
-    print(str(n_questions + 1) + " questions added\n")
-
-
-########################################################################
+    print(str(questions_count + 1) + " questions added\n")
 
 
 if __name__ == "__main__":
