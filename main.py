@@ -6,16 +6,42 @@ driver = webdriver.Chrome()
 
 
 def add_question():
+    """Locates and clicks on add question button in browser"""
+
     add_question_button = driver.find_element_by_xpath(xpath.ADD_QUESTION_BUTTON)
     add_question_button.click()
 
 
 def send_info(location, element, info):
+    """Locates element in browser and sends information
+
+    Gets a list of elements passed by an xpath location in the browser.
+    It then sends information to the n-element of that list.
+    If the element is the first answer option in google forms it gets
+    clicked in order to get cleared, this is because
+    elements[element].clear() is not working here.
+    """
+
     elements = driver.find_elements_by_xpath(location)
-    if element == -2:  # if first answer
-        elements[element].click()  # click needed to clear answer box, clear() function not working in this line
+    # if first answer
+    if element == -2:
+        # click needed to clear answer box
+        elements[element].click()
     elements[element].send_keys(info)
-    time.sleep(0.5)  # necessary time for google forms to finish entering the text
+    # necessary time for google forms to finish entering the text
+    time.sleep(0.5)
+
+
+def fill_list():
+    """Fills list in which questions are taken to fill Google form"""
+
+    with open("questions.txt", "r", encoding="utf8") as file:
+        for line in file:
+            if '\n' in line:
+                # avoids return
+                questions.append(line[:-1])
+            else:
+                questions.append(line)
 
 
 def main_loop():
@@ -43,21 +69,19 @@ def main_loop():
     print(str(n_questions + 1) + " questions added\n")
 
 
+########################################################################
+
+
 print("--------------------------------------------\n"
       "            SELENIUM EXAM FILLER\n"
       "--------------------------------------------\n"
       "More info: https://github.com/oscaragl13/selenium-exam-filler\n")
 
+
 questions = []
-with open("questions.txt", "r", encoding="utf8") as file:
-    for line in file:
-        if '\n' in line:
-            questions.append(line[:-1])  # avoids return
-        else:
-            questions.append(line)
+fill_list()
 
 print(str(questions.count('') + 1) + " questions to add.")
-
 input("Hit Enter when you get to your Google form...\n")
 main_loop()
 input("Process finished, press Enter to exit...")
