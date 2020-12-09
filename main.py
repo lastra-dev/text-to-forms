@@ -25,7 +25,7 @@ def main_loop():
     first_answer = False
 
     for info in lines:
-        if info == '':
+        if not info:
             add_question()
             new_question = True
         elif new_question:
