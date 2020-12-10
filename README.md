@@ -1,7 +1,7 @@
 # Text To Forms
 > Auto Google Form creator using selenium and txt.
 
-[![License][Github-license]][Github-url]
+[![License][Github-license]][License]
 [![Twitter][twitter-followers]][twitter-url]
 
 Text To Forms is a simple tool to create multi-answer Google forms from .txt files using Python and Selenium library.
@@ -52,4 +52,5 @@ Oscar Lastra – [@oscaraGL16](https://twitter.com/oscaragl16) – oscar.glastra
 [twitter-url]: https://twitter.com/oscaragl16
 [Github-url]: https://github.com/oscaragl13/text-to-forms/
 [Github-license]: https://img.shields.io/github/license/oscaragl13/text-to-forms
+[License]: https://github.com/oscaragl13/text-to-forms/blob/main/LICENSE
 [twitter-followers]: https://img.shields.io/twitter/follow/oscaragl16.svg?style=social&label=Follow
