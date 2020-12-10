@@ -6,7 +6,7 @@
 
 Text To Forms is a simple tool to create multi-answer Google forms from .txt files using Python and Selenium library.
 
-![Usage gif](https://i.imgur.com/WFmlTeF.gif)
+![Usage gif](https://i.imgur.com/kGUAdJz.gif)
 
 ## Installation
 
@@ -25,8 +25,7 @@ or just execute main.py...
 
 ## Usage example
 
-This tool can be specially useful when you have written an exam in Word or PDF, and you need to copy it to a Google form
-<br>imagine having to copy a hundred questions with its answers one by one.
+This tool can be specially useful when you have written an exam in Word or PDF, and you need to copy it to a Google form imagine having to copy a hundred questions with its answers one by one.
 
 ## Release History
 
@@ -43,7 +42,7 @@ Oscar Lastra – [@oscaraGL16](https://twitter.com/oscaragl16) – oscar.glastra
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/oscaragl13/text-to-forms/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
