@@ -96,16 +96,17 @@ if __name__ == "__main__":
           "            SELENIUM EXAM FILLER\n"
           "--------------------------------------------\n"
           "Instructions:\n"
-          "1. Go to forms.google.com\n"
-          "2. Login to your Google account\n"
+          "1. Login to your Google account\n"
           "   allow less secure apps if having problems:\n"
           "   https://myaccount.google.com/lesssecureapps\n"
-          "3. Add a new form\n"
-          "4. Hit Enter\n"
+          "2. Wait for the form to load\n"
+          "   if there's no form loaded, click on new form\n"
+          "3. Hit Enter\n"
           "\nMore info: https://github.com/oscaragl13/selenium-exam-filler\n")
 
     try:
         driver = webdriver.Chrome()
+        driver.get("https://docs.google.com/forms/")
         questions = fill_list()
     except WebDriverException:
         input("ERROR: Make sure to have chromedriver.exe inside the root of the project, Chrome installed, "
