@@ -6,7 +6,7 @@
 
 Text To Forms is a simple tool to create multi-answer Google forms from .txt files using Python and Selenium library.
 
-![Usage gif](https://i.imgur.com/kGUAdJz.gif)
+![Usage gif](https://i.imgur.com/3eiq9tQ.gif)
 
 ## Installation
 
