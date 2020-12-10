@@ -14,7 +14,7 @@ Linux, Windows & MacOS:
 
 In terminal:
 ```
-git clone https://github.com/oscaragl13/selenium-exam-filler.git
+git clone https://github.com/oscaragl13/text-to-forms.git
 ```
 
 Run program:
@@ -25,7 +25,7 @@ or just execute main.py...
 
 ## Usage example
 
-This tool can be specially useful when you have written an exam in Word or PDF, and you need to copy it to a Google form imagine having to copy a hundred questions with its answers one by one.
+This tool can be specially useful when you have written an exam in Word or PDF, and you need to copy it to a Google form. Imagine having to copy a hundred questions with its answers one by one.
 
 ## Release History
 
