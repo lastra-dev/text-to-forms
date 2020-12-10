@@ -93,7 +93,7 @@ def main_loop():
 
 if __name__ == "__main__":
     print("--------------------------------------------\n"
-          "            SELENIUM EXAM FILLER\n"
+          "               TEXT TO FORMS\n"
           "--------------------------------------------\n"
           "Instructions:\n"
           "1. Login to your Google account\n"
@@ -102,15 +102,16 @@ if __name__ == "__main__":
           "2. Wait for the form to load\n"
           "   if there's no form loaded, click on new form\n"
           "3. Hit Enter\n"
-          "\nMore info: https://github.com/oscaragl13/selenium-exam-filler\n")
+          "\nMore info: https://github.com/oscaragl13/text-to-forms\n")
 
     try:
         driver = webdriver.Chrome()
         driver.get("https://docs.google.com/forms/")
         questions = fill_list()
     except WebDriverException:
-        input("ERROR: Make sure to have chromedriver.exe inside the root of the project, Chrome installed, "
-              "and both programs up to date.\npress Enter to exit...")
+        input("ERROR: Make sure to have chromedriver inside the root of the project, Chrome installed,\n"
+              "and both programs on the same version."
+              "\npress Enter to exit...")
     except FileNotFoundError:
         input("ERROR: Make sure to have questions.txt inside the root of the project and add questions to it.\n"
               "press Enter to exit...")

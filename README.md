@@ -17,11 +17,12 @@ In terminal:
 git clone https://github.com/oscaragl13/text-to-forms.git
 ```
 
+Download the version of [Chromedriver](https://chromedriver.chromium.org/downloads) that matches your Google Chrome browser version and move it into project's directory
+
 Run program:
 ```
 python main.py
 ```
-or just execute main.py...
 
 ## Usage example
 
