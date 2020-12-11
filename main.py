@@ -61,6 +61,7 @@ def fill_list() -> list:
 
 
 def main_loop():
+    print("Adding questions...\n")
     add_question()
     # necessary booleans to change input location
     new_question = True
@@ -118,5 +119,8 @@ if __name__ == "__main__":
     else:
         print(str(questions.count('') + 1) + " questions to add.")
         input("Hit Enter when you get to your Google form...\n")
-        main_loop()
+        try:
+            main_loop()
+        except WebDriverException:
+            print("ERROR: Try running the program again.")
         input("Process finished, press Enter to exit...")
