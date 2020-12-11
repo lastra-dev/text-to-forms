@@ -1,12 +1,12 @@
 # Text To Forms
-> Auto Google Form creator using selenium and txt.
+> Google form generator using txt files.
 
 [![License][Github-license]][License]
 [![Twitter][twitter-followers]][twitter-url]
 
-Text To Forms is a simple tool to create multi-answer Google forms from .txt files using Python and Selenium library.
+Text To Forms is a simple tool to create multi-answer Google forms from txt files using Python and Selenium library.
 
-![Usage gif](https://media.giphy.com/media/VDTrwzq4ohqFr8mkSR/giphy.gif)
+![Demo gif](https://media.giphy.com/media/VDTrwzq4ohqFr8mkSR/giphy.gif)
 
 ## Installation
 
@@ -17,7 +17,13 @@ In terminal:
 git clone https://github.com/oscaragl13/text-to-forms.git
 ```
 
-Download the version of [Chromedriver](https://chromedriver.chromium.org/downloads) that matches your Google Chrome browser version and move it into project's directory
+Download the version of [Chromedriver](https://chromedriver.chromium.org/downloads) that matches your Google Chrome browser version and move it into project's directory.
+Open questions.txt inside project's directory and type your questions or copy them into the file, questions must be separated by blank spaces and they must have at least one answer. *See [questions.txt](questions.txt) for reference...*
+
+Change directory to project's folder:
+```
+cd text-to-forms
+```
 
 Run program:
 ```
@@ -27,6 +33,9 @@ python main.py
 ## Usage example
 
 This tool can be specially useful when you have written an exam in Word or PDF, and you need to copy it to a Google form. Imagine having to copy a hundred questions with its answers one by one.
+
+## Screenshots
+![screenshot1](https://i.imgur.com/OHEn8IL.png)
 
 ## Release History
 
