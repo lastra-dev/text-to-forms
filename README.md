@@ -1,5 +1,5 @@
 # Text To Forms
-> Google form generator using txt files.
+> Google form builder using text files.
 
 [![License][Github-license]][License]
 [![Twitter][twitter-followers]][twitter-url]
