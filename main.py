@@ -10,8 +10,7 @@ def add_question():
     try:
         add_question_button = driver.find_element_by_xpath(xpath.ADD_QUESTION_BUTTON)
     except NoSuchElementException:
-        input("ERROR: Make sure to be on your Google form and do not interfere with the browser!\n"
-              "Press Enter to exit...")
+        input("ERROR: Make sure to be on your Google form and do not interfere with the browser!\n")
         driver.close()
         exit(0)
     else:
@@ -111,16 +110,15 @@ if __name__ == "__main__":
         questions = fill_list()
     except WebDriverException:
         input("ERROR: Make sure to have chromedriver inside the root of the project, Chrome installed,\n"
-              "and both programs on the same version."
-              "\npress Enter to exit...")
+              "both programs on the same version, and do not close the browser window.\n")
     except FileNotFoundError:
-        input("ERROR: Make sure to have questions.txt inside the root of the project and add questions to it.\n"
-              "press Enter to exit...")
+        input("ERROR: Make sure to have questions.txt inside the root of the project and add questions to it.\n")
     else:
         print(str(questions.count('') + 1) + " questions to add.")
         input("Hit Enter when you get to your Google form...\n")
         try:
             main_loop()
         except WebDriverException:
-            print("ERROR: Try running the program again.")
-        input("Process finished, press Enter to exit...")
+            print("ERROR: Try running the program again.\n")
+
+    input("Process finished, press Enter to exit...")
