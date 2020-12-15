@@ -1,7 +1,9 @@
+from time import sleep
+
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+
 import xpath
-import time
 
 
 def add_question():
@@ -33,7 +35,7 @@ def send_info(location, element, info):
         elements[element].click()
     elements[element].send_keys(info)
     # necessary time for google forms to finish entering the text
-    time.sleep(0.5)
+    sleep(0.5)
 
 
 def fill_list() -> list:
