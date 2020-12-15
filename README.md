@@ -1,5 +1,5 @@
 # Text To Forms
-> Google form generator using txt files.
+> Google form builder using text files.
 
 [![License][Github-license]][License]
 [![Twitter][twitter-followers]][twitter-url]
@@ -12,7 +12,12 @@ Text To Forms is a simple tool to create multi-answer Google forms from txt file
 
 Linux, Windows & MacOS:
 
-In terminal:
+Install [Selenium](https://selenium-python.readthedocs.io/installation.html):
+```
+pip install selenium
+```
+
+Clone this repository:
 ```
 git clone https://github.com/oscaragl13/text-to-forms.git
 ```
