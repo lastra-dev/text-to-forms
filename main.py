@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.common.exceptions import WebDriverException, NoSuchElementException
+from selenium.common.exceptions import WebDriverException
 import xpath
 import time
 
@@ -7,14 +7,8 @@ import time
 def add_question():
     """Locates and clicks on add question button in browser"""
 
-    try:
-        add_question_button = driver.find_element_by_xpath(xpath.ADD_QUESTION_BUTTON)
-    except NoSuchElementException:
-        input("ERROR: Make sure to be on your Google form and do not interfere with the browser!\n")
-        driver.close()
-        exit(0)
-    else:
-        add_question_button.click()
+    add_question_button = driver.find_element_by_xpath(xpath.ADD_QUESTION_BUTTON)
+    add_question_button.click()
 
 
 def send_info(location, element, info):
@@ -109,10 +103,10 @@ if __name__ == "__main__":
         driver.get("https://docs.google.com/forms/")
         questions = fill_list()
     except WebDriverException:
-        input("ERROR: Make sure to have chromedriver inside the root of the project, Chrome installed,\n"
+        print("ERROR: Make sure to have chromedriver inside the root of the project, Chrome installed,\n"
               "both programs on the same version, and do not close the browser window.\n")
     except FileNotFoundError:
-        input("ERROR: Make sure to have questions.txt inside the root of the project and add questions to it.\n")
+        print("ERROR: Make sure to have questions.txt inside the root of the project and add questions to it.\n")
     else:
         print(str(questions.count('') + 1) + " questions to add.")
         input("Hit Enter when you get to your Google form...\n")
