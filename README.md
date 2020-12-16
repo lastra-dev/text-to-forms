@@ -12,7 +12,7 @@ Text To Forms is a simple tool to create multi-answer Google forms from txt file
 
 ### Windows:
 
-Install [Selenium](https://selenium-python.readthedocs.io/installation.html):
+Install [Selenium][selenium-link]:
 ```
 pip install selenium
 ```
@@ -31,6 +31,32 @@ Download chromedriver: [![Chromedriver version][chromedriver-latest-release]][ch
 curl -o chromedriver.zip https://chromedriver.storage.googleapis.com/[LATEST RELEASE]/chromedriver_win32.zip
 tar -xf chromedriver.zip
 del chromedriver.zip
+```
+Run program:
+```
+python3 main.py
+```
+### Linux & MacOS:
+
+Install [Selenium][selenium-link]:
+```
+pip install selenium
+```
+Clone this repository:
+```
+git clone https://github.com/oscaragl13/text-to-forms.git
+```
+Open questions.txt inside project's directory and type your questions or copy them into the file, questions must be separated by blank spaces and they must have at least one answer. *See [questions.txt](questions.txt) for reference...*
+
+Change directory to project's folder:
+```
+cd text-to-forms
+```
+Download chromedriver: [![Chromedriver version][chromedriver-latest-release]][chromedriver-download]
+```
+curl -o chromedriver.zip https://chromedriver.storage.googleapis.com/[LATEST RELEASE]/chromedriver_[LINUX/MAC]64.zip
+unzip chromedriver.zip
+rm chromedriver.zip
 ```
 Run program:
 ```
@@ -73,3 +99,4 @@ Oscar Lastra – [@oscaraGL16](https://twitter.com/oscaragl16) – oscar.glastra
 [twitter-followers]: https://img.shields.io/twitter/follow/oscaragl16.svg?style=social&label=Follow
 [chromedriver-latest-release]: https://img.shields.io/badge/dynamic/json?color=blue&label=LATEST%20RELEASE%3A&query=%24%5B%27client%27%5D%5B%27Google%20Chrome%27%5D%5B%2A%5D%5B%27version%27%5D&url=https%3A%2F%2Fvergrabber.kingu.pl%2Fvergrabber.json
 [chromedriver-download]: https://chromedriver.chromium.org/downloads
+[selenium-link]: https://selenium-python.readthedocs.io/installation.html
