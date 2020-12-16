@@ -1,3 +1,4 @@
+from platform import system
 from time import sleep
 
 from selenium import webdriver
@@ -13,7 +14,7 @@ def add_question():
     add_question_button.click()
 
 
-def send_info(location, element, info):
+def send_info(location, index, info):
     """Locates element in browser and sends information
 
     Gets element from list of elements and send information to that element
@@ -22,7 +23,7 @@ def send_info(location, element, info):
     ----------
     location : str
         Xpath location of the elements
-    element : int
+    index : int
         Index of element in the location
     info : str
         Information to send to the element in the location
@@ -30,10 +31,10 @@ def send_info(location, element, info):
 
     elements = driver.find_elements_by_xpath(location)
     # if first answer
-    if element == -2:
+    if index == -2:
         # click needed to clear answer box, .clear() not working...
-        elements[element].click()
-    elements[element].send_keys(info)
+        elements[index].click()
+    elements[index].send_keys(info)
     # necessary time for google forms to finish entering the text
     sleep(0.5)
 
@@ -50,6 +51,19 @@ def fill_list() -> list:
             else:
                 questions_list.append(line)
     return questions_list
+
+
+def chromedriver_path_of(system_name) -> str:
+    """Gets system name and returns a string path
+
+    :param string system_name: system_name should be "Windows", "Linux" or "Darwin"
+    System name can be obtained from "platform" module and "system" function
+    """
+
+    if system_name == 'Windows':
+        return "./chromedriver.exe"
+    else:
+        return "./chromedriver"
 
 
 ########################################################################
@@ -101,7 +115,7 @@ if __name__ == "__main__":
           "\nMore info: https://github.com/oscaragl13/text-to-forms\n")
 
     try:
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(executable_path=chromedriver_path_of(system()))
         driver.get("https://docs.google.com/forms/")
         questions = fill_list()
     except WebDriverException:
