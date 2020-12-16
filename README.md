@@ -28,8 +28,8 @@ cd text-to-forms
 ```
 Download chromedriver: [![Chromedriver version][chromedriver-latest-release]][chromedriver-download]
 ```
-curl -o chromedriver.zip https://chromedriver.storage.googleapis.com/LATEST RELEASE/chromedriver_linux64.zip
-tar -xf archive.zip
+curl -o chromedriver.zip https://chromedriver.storage.googleapis.com/[LATEST RELEASE]/chromedriver_win32.zip
+tar -xf chromedriver.zip
 del chromedriver.zip
 ```
 Run program:
