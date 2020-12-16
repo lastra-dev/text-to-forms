@@ -18,13 +18,12 @@ Clone this repository:
 ```
 git clone https://github.com/oscaragl13/text-to-forms.git
 ```
-Open questions.txt inside project's directory and type your questions or copy them into the file, questions must be separated by blank spaces and they must have at least one answer. *See [questions.txt](questions.txt) for reference...*
-
 Change directory to project's folder:
 ```
 cd text-to-forms
 ```
-Download chromedriver:
+### Download chromedriver and move it into project's directory:
+Make sure to exchange \<LATEST RELEASE\> to the number below.
 
 [![Chromedriver version][chromedriver-latest-release]][chromedriver-download]
 
@@ -47,6 +46,9 @@ curl -o chromedriver.zip https://chromedriver.storage.googleapis.com/<LATEST REL
 unzip chromedriver.zip
 rm chromedriver.zip
 ```
+Open questions.txt inside project's directory and type your questions, or copy them into the file, questions must be separated by blank lines and each one must have at least one answer, you can also leave the default questions.
+
+*See [questions.txt](questions.txt) for reference...*
 
 Run program:
 ```
