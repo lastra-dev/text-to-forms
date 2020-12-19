@@ -14,49 +14,52 @@ def add_question():
     add_question_button.click()
 
 
-def send_info(location, index, info):
+def send_info(a_location, index_in_location, info_to_send):
     """Locates element in browser and sends information
 
     Gets element from list of elements and send information to that element
 
     Parameters
     ----------
-    location : str
+    a_location : str
         Xpath location of the elements
-    index : int
+    index_in_location : int
         Index of element in the location
-    info : str
+    info_to_send : str
         Information to send to the element in the location
     """
 
-    elements = driver.find_elements_by_xpath(location)
+    elements = driver.find_elements_by_xpath(a_location)
     # if first answer
-    if index == -2:
+    if index_in_location == -2:
         # click needed to clear answer box, .clear() not working...
-        elements[index].click()
-    elements[index].send_keys(info)
+        elements[index_in_location].click()
+    elements[index_in_location].send_keys(info_to_send)
     # necessary time for google forms to finish entering the text
     sleep(0.5)
 
 
-def fill_list() -> list:
-    """Fills list in which questions are taken to fill Google form"""
+def make_list_with(a_file) -> list:
+    """Fills list in which questions are taken to fill Google form
 
-    questions_list = []
-    with open("questions.txt", "r", encoding="utf8") as file:
-        for line in file:
+    :param string a_file: should be a file with questions separated with blank lines
+    """
+
+    result = []
+    with open(a_file, "r", encoding="utf8") as text:
+        for line in text:
             if '\n' in line:
                 # avoids return
-                questions_list.append(line[:-1])
+                result.append(line[:-1])
             else:
-                questions_list.append(line)
-    return questions_list
+                result.append(line)
+    return result
 
 
 def chromedriver_path_of(system_name) -> str:
     """Gets system name and returns a string path
 
-    :param string system_name: system_name should be "Windows", "Linux" or "Darwin"
+    :param string system_name: should be "Windows", "Linux" or "Darwin".
     System name can be obtained from "platform" module and "system" function
     """
 
@@ -117,7 +120,7 @@ if __name__ == "__main__":
     try:
         driver = webdriver.Chrome(executable_path=chromedriver_path_of(system()))
         driver.get("https://docs.google.com/forms/")
-        questions = fill_list()
+        questions = make_list_with("questions.txt")
     except WebDriverException:
         print("ERROR: Make sure to have chromedriver inside the root of the project, Chrome installed,\n"
               "both programs on the same version, and do not close the browser window.\n")
