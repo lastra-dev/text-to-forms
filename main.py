@@ -4,13 +4,13 @@ from time import sleep
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
-import xpath
+import constants
 
 
 def add_question():
     """Locates and clicks on add question button in browser"""
 
-    add_question_button = driver.find_element_by_xpath(xpath.ADD_QUESTION_BUTTON)
+    add_question_button = driver.find_element_by_xpath(constants.ADD_QUESTION_BUTTON)
     add_question_button.click()
 
 
@@ -90,33 +90,22 @@ def main_loop():
             print(str(questions_count) + " questions added")
         elif new_question:
             # adds info in question box
-            send_info(xpath.QUESTION_BOX, -1, info)
+            send_info(constants.QUESTION_BOX, -1, info)
             new_question = False
             first_answer = True
         elif first_answer:
             # adds info in first answer box
-            send_info(xpath.ANSWER_BOX, -2, info)
+            send_info(constants.ANSWER_BOX, -2, info)
             first_answer = False
         else:
             # adds info in the rest of the answer boxes
-            send_info(xpath.ANSWER_BOX, -1, info)
+            send_info(constants.ANSWER_BOX, -1, info)
 
     print(str(questions_count + 1) + " questions added\n")
 
 
 if __name__ == "__main__":
-    print("--------------------------------------------\n"
-          "               TEXT TO FORMS\n"
-          "--------------------------------------------\n"
-          "Instructions:\n"
-          "1. Login to your Google account\n"
-          "   allow less secure apps if having problems:\n"
-          "   https://myaccount.google.com/lesssecureapps\n"
-          "2. Wait for the form to load\n"
-          "   if there's no form loaded, click on new form\n"
-          "3. Hit Enter\n"
-          "\nMore info: https://github.com/oscaragl13/text-to-forms\n")
-
+    print(constants.MENU)
     try:
         driver = webdriver.Chrome(executable_path=chromedriver_path_of(system()))
         driver.get("https://docs.google.com/forms/")
@@ -133,5 +122,4 @@ if __name__ == "__main__":
             main_loop()
         except WebDriverException:
             print("ERROR: Try running the program again.\n")
-
     input("Process finished, press Enter to exit...")
