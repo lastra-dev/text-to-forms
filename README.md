@@ -2,9 +2,8 @@
 > Google form builder using text files.
 
 [![License][Github-license]][License]
-[![Twitter][twitter-followers]][twitter-url]
 
-Text To Forms is a simple tool to create multi-answer Google forms from txt files using Python and Selenium library.
+Text To Forms is a simple tool to create multi-answer Google forms from text files using Python and the Selenium library.
 
 ![Demo gif](https://media.giphy.com/media/VDTrwzq4ohqFr8mkSR/giphy.gif)
 
@@ -22,7 +21,7 @@ Change directory to project's folder:
 ```
 cd text-to-forms
 ```
-### Download chromedriver and move it into project's directory:
+### Download Chromedriver and move it into the project's directory:
 Make sure to exchange \<LATEST RELEASE\> to the number below.
 
 [![Chromedriver version][chromedriver-latest-release]][chromedriver-download]
@@ -46,7 +45,7 @@ curl -o chromedriver.zip https://chromedriver.storage.googleapis.com/<LATEST REL
 unzip chromedriver.zip
 rm chromedriver.zip
 ```
-Open questions.txt inside project's directory and type your questions, or copy them into the file, questions must be separated by blank lines and each one must have at least one answer, you can also leave the default questions.
+Open questions.txt inside the project's directory and type your questions, or copy them into the file. You must separate each question by a blank line, and each must have at least one answer. You can also leave the default questions.
 
 *See [questions.txt](questions.txt) for reference...*
 
@@ -55,25 +54,8 @@ Run program:
 python3 main.py
 ```
 
-## Usage example
-
-This tool can be specially useful when you have written an exam in Word or PDF, and you need to copy it to a Google form. Imagine having to copy a hundred questions with its answers one by one.
-
 ## Screenshots
 ![screenshot1](https://i.imgur.com/OHEn8IL.png)
-
-## Release History
-
-* 1.0.0
-    * Work in progress
-
-## Meta
-
-Oscar Lastra – [@oscaraGL16](https://twitter.com/oscaragl16) – oscar.glastra@gmail.com
-
-<!-- LICENSE INFORMATION -->
-
-[Github Profile][Github-url]
 
 ## Contributing
 
